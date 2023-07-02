@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.AddNewEntryActivity"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        >
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Add New Entry"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/left1"
+            android:layout_marginLeft="20dp"
+            android:padding="8dp"
+            app:tint="?attr/colorOnPrimaryContainer"
+            />
+    </RelativeLayout>
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/selectName"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        app:chipCornerRadius="30dp"
+        android:text="Select Name"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        app:chipStrokeWidth="2dp"
+        app:chipBackgroundColor="?attr/colorSurfaceContainerHighest"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:clickable="true"
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Pass No."
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="18dp" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/passNo"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        app:chipCornerRadius="30dp"
+        android:text="Pass No"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        app:chipStrokeWidth="2dp"
+        app:chipBackgroundColor="?attr/colorSurfaceContainerHighest"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:clickable="true"
+        />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        app:chipCornerRadius="30dp"
+        android:inputType="date"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        app:chipStrokeWidth="2dp"
+        app:chipBackgroundColor="?attr/colorSurfaceContainerHighest"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        android:clickable="true"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Add 1 Pass"
+        android:minWidth="120dp"
+        android:textSize="18dp"
+        android:layout_marginTop="60dp"
+        />
+</LinearLayout>
