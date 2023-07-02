@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MemberViewActivity"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        >
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/member_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Name"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/left1"
+            android:layout_marginLeft="20dp"
+            android:padding="8dp"
+            app:tint="?attr/colorOnPrimaryContainer"
+            />
+    </RelativeLayout>
+    <com.google.android.material.chip.Chip
+        android:id="@+id/passNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        app:chipCornerRadius="30dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="20dp"
+        android:textSize="18dp"
+        android:text="Pass No"
+        app:chipIcon="@drawable/chevrondown"
+        app:chipStrokeWidth="0dp"
+        app:chipBackgroundColor="?attr/colorSurfaceContainerHighest"
+        android:textColor="?attr/colorOnSurfaceVariant"
+        app:chipIconTint="?attr/colorOnSurfaceVariant"
+        android:clickable="true"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_member_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        >
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Pass : "
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/total_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="......"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        >
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Rupees : "
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/total_rupees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="......"
+            />
+    </LinearLayout>
+
+</LinearLayout>

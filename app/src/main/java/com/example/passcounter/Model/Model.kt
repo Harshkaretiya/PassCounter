@@ -1,7 +1,10 @@
 package com.example.passcounter.Model
 
 data class Model (
-    val member: String = "",
+    val mname: String = "",
     val date: String = "",
-    val passNumber: Int = 0
+    val passno: Int = 0,
+    val pid:Int = 0,
+    val mid:Int = 0,
+    val eid:Int = 0
 )

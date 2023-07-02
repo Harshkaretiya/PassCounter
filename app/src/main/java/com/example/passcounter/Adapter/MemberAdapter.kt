@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.passcounter.Activity.MemberViewActivity
 import com.example.passcounter.Model.Model
 import com.example.passcounter.R
 
@@ -26,7 +27,17 @@ class MemberAdapter(var context: Context, var list: MutableList<Model>) : Recycl
 
     override fun onBindViewHolder(holder: MyView1, @SuppressLint("RecyclerView") position: Int) {
 
+        holder.mname.text = list[position].mname
+        holder.fletter.text = list[position].mname.first().toString()
 
+        holder.itemView.setOnClickListener {
+            var i = Intent(context, MemberViewActivity::class.java)
+            i.putExtra("mid",list[position].mid)
+            i.putExtra("mname",list[position].mname)
+//            i.putExtra("cpage",page)
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(i)
+        }
     }
 }
 class MyView1(itemView: View) : RecyclerView.ViewHolder(itemView)

@@ -13,15 +13,33 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-        <com.google.android.material.textview.MaterialTextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
-            android:text="Pass counter"
-            android:layout_marginTop="20dp"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:layout_gravity="center" />
+            >
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pass counter"
+                android:layout_marginTop="20dp"
+                android:textSize="18dp"
+                android:layout_centerInParent="true"
+                android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/addNewPass"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/plus"
+                android:padding="5dp"
+                app:tint="?attr/colorOnPrimaryContainer"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_member"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -29,6 +47,7 @@
             />
     </LinearLayout>
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/addNewEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:icon="@drawable/plus"
@@ -37,4 +56,5 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
         />
+
 </RelativeLayout>

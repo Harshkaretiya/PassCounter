@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.AddNewEntryActivity"
+    tools:context=".Activity.AddNewPassActivity"
     android:orientation="vertical"
     >
     <RelativeLayout
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Add New Entry"
+            android:text="Add New Pass"
             android:textSize="20dp"
             android:textStyle="bold" />
         <ImageView
@@ -31,43 +31,32 @@
             app:tint="?attr/colorOnPrimaryContainer"
             />
     </RelativeLayout>
-        <com.google.android.material.chip.Chip
-            android:id="@+id/selectName"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            app:chipCornerRadius="30dp"
-            android:text="Select Name"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:textSize="20dp"
-            app:chipStrokeWidth="2dp"
-            app:chipBackgroundColor="?attr/colorSurfaceContainerHighest"
-            android:textColor="?attr/colorOnSurfaceVariant"
-            android:clickable="true"
-            />
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lname_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Pass No."
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:textSize="18dp" />
+        app:boxStrokeWidth="2dp"
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusTopStart="15dp"
+        android:clickable="false"
+        app:boxBackgroundColor="?attr/colorSurfaceContainerHighest"
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/passNo"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        app:chipCornerRadius="30dp"
-        android:text="Pass No"
-        android:layout_marginLeft="20dp"
-        android:textSize="20dp"
-        app:chipStrokeWidth="2dp"
-        app:chipBackgroundColor="?attr/colorSurfaceContainerHighest"
-        android:textColor="?attr/colorOnSurfaceVariant"
-        android:clickable="true"
-        />
-
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passNo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Pass No."
+            android:clickable="false"
+            android:inputType="number"
+            android:textIsSelectable="false"
+            android:textSize="18dp"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.chip.Chip
         android:id="@+id/date"
         android:layout_width="wrap_content"
@@ -82,13 +71,12 @@
         android:textColor="?attr/colorOnSurfaceVariant"
         android:clickable="true"
         />
-
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/insertPass"
+        android:id="@+id/addPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Add 1 Pass"
+        android:text="Add New Pass"
         android:minWidth="120dp"
         android:textSize="18dp"
         android:layout_marginTop="60dp"
