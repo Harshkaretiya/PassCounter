@@ -50,6 +50,9 @@ class AddNewEntryActivity : AppCompatActivity() {
         binding.date.setOnClickListener {
             showDatePickerDialog()
         }
+        binding.backButton.setOnClickListener {
+            onBackPressed()
+        }
 
         apiInterface = ApiClient.getapiclient().create(ApiInterface::class.java)
 

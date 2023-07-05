@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.khatabook.API.ApiClient
 import com.example.passcounter.API.ApiInterface
 import com.example.passcounter.Adapter.MemberAdapter
+import com.example.passcounter.Extra.NotificationService
 import com.example.passcounter.Model.Model
 import com.example.passcounter.R
 import com.example.passcounter.databinding.ActivityMainBinding
@@ -30,9 +31,11 @@ class MainActivity : AppCompatActivity() {
         list = ArrayList()
 
         binding.addNewEntry.setOnClickListener {
+            startService(Intent(applicationContext, NotificationService::class.java))
             startActivity(Intent(this,AddNewEntryActivity::class.java))
         }
         binding.addNewPass.setOnClickListener {
+            stopService(Intent(applicationContext,NotificationService::class.java))
             startActivity(Intent(this,AddNewPassActivity::class.java))
         }
 

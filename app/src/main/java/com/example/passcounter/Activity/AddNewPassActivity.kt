@@ -39,6 +39,9 @@ class AddNewPassActivity : AppCompatActivity() {
         binding.date.setOnClickListener {
             showDatePickerDialog()
         }
+        binding.backButton.setOnClickListener {
+            onBackPressed()
+        }
 
         binding.addPass.setOnClickListener {
 

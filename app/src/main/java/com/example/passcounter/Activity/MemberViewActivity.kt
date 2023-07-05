@@ -41,6 +41,10 @@ class MemberViewActivity : AppCompatActivity() {
         var i = intent
         var mid= i.getIntExtra("mid",0)
 
+        binding.backButton.setOnClickListener {
+            onBackPressed()
+        }
+
 
         apiInterface = ApiClient.getapiclient().create(ApiInterface::class.java)
 
@@ -110,6 +114,8 @@ class MemberViewActivity : AppCompatActivity() {
                                 override fun onResponse(call: Call<List<Model>>, response: Response<List<Model>>) {
                                     if (this != null) {
                                         list = response.body() as MutableList<Model>
+
+                                        binding.passNo.text = optionNames[selectedOption]
 
                                         var adapter2 = MemberViewAdapter(this@MemberViewActivity, list)
                                         binding!!.recyclerMemberView.adapter = adapter2

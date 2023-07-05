@@ -6,5 +6,6 @@ data class Model (
     val passno: Int = 0,
     val pid:Int = 0,
     val mid:Int = 0,
-    val eid:Int = 0
+    val eid:Int = 0,
+    val entryCount:Int = 99
 )

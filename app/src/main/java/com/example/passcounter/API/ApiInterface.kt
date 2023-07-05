@@ -41,4 +41,7 @@ interface ApiInterface {
         @Field("date") date:String,
     ): Call<Void>
 
+    @GET("getEntryCount.php")
+    fun getEntryCount(
+    ): Call<List<Model>>
 }
