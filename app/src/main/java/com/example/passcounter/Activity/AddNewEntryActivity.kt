@@ -53,6 +53,7 @@ class AddNewEntryActivity : AppCompatActivity() {
         binding.backButton.setOnClickListener {
             onBackPressed()
         }
+        ProgressBarUtils.showProgressBar(this)
 
         apiInterface = ApiClient.getapiclient().create(ApiInterface::class.java)
 
@@ -65,6 +66,8 @@ class AddNewEntryActivity : AppCompatActivity() {
 
                     binding!!.passNo.text = list[0].passno.toString()
                     pid = list[0].pid
+                    ProgressBarUtils.hideProgressBar()
+
 
                 }
             }
@@ -78,11 +81,12 @@ class AddNewEntryActivity : AppCompatActivity() {
             }
         })
         binding.passNo.setOnClickListener {
+            ProgressBarUtils.showProgressBar(this)
             var call: Call<List<Model>> = apiInterface.viewrempass()
             call.enqueue(object : Callback<List<Model>> {
                 override fun onResponse(call: Call<List<Model>>, response: Response<List<Model>>) {
                     if (this != null) {
-
+                        ProgressBarUtils.hideProgressBar()
                         list = response.body() as MutableList<Model>
 
                         val passNumber: MutableList<String> = mutableListOf()
@@ -123,11 +127,14 @@ class AddNewEntryActivity : AppCompatActivity() {
             })
         }
         binding.selectName.setOnClickListener {
+            ProgressBarUtils.showProgressBar(this)
             var call: Call<List<Model>> = apiInterface.viewmember()
             call.enqueue(object: Callback<List<Model>>
             {
                 override fun onResponse(call: Call<List<Model>>, response: Response<List<Model>>) {
                     if (this != null) {
+
+                        ProgressBarUtils.hideProgressBar()
                         list2 = response.body() as MutableList<Model>
                         val passNumber: MutableList<String> = mutableListOf()
 
@@ -161,13 +168,14 @@ class AddNewEntryActivity : AppCompatActivity() {
             })
         }
         binding.insertPass.setOnClickListener {
-
+            ProgressBarUtils.showProgressBar(this)
             var call2: Call<Void> = apiInterface.insertentry(mid,pid,selectedDate)
             call2.enqueue(object: Callback<Void>
             {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (this != null) {
                         if (response.isSuccessful){
+                            ProgressBarUtils.hideProgressBar()
                             Toast.makeText(this@AddNewEntryActivity, "Done", Toast.LENGTH_SHORT).show()
                             onBackPressed()
 //                            Toast.makeText(this@NewEntryActivity, "done", Toast.LENGTH_SHORT).show()

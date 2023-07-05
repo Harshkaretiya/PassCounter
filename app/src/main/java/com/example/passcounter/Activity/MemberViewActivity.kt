@@ -44,7 +44,7 @@ class MemberViewActivity : AppCompatActivity() {
         binding.backButton.setOnClickListener {
             onBackPressed()
         }
-
+        ProgressBarUtils.showProgressBar(this)
 
         apiInterface = ApiClient.getapiclient().create(ApiInterface::class.java)
 
@@ -72,6 +72,8 @@ class MemberViewActivity : AppCompatActivity() {
 
                                 binding.totalPass.text = totalPass.toString()
                                 binding.totalRupees.text = totalRupees.toString()
+
+                                ProgressBarUtils.hideProgressBar()
                             }
                         }
                         override fun onFailure(call: Call<List<Model>>, t: Throwable) {
@@ -86,12 +88,16 @@ class MemberViewActivity : AppCompatActivity() {
         })
 
         binding.passNo.setOnClickListener {
+            ProgressBarUtils.showProgressBar(this)
             var call: Call<List<Model>> = apiInterface.viewpass()
             call.enqueue(object : Callback<List<Model>> {
                 override fun onResponse(call: Call<List<Model>>, response: Response<List<Model>>) {
                     if (this != null) {
 
+
                         list2 = response.body() as MutableList<Model>
+
+                        ProgressBarUtils.hideProgressBar()
 
                         val passNumber: MutableList<String> = mutableListOf()
 
@@ -107,6 +113,8 @@ class MemberViewActivity : AppCompatActivity() {
                             selectedOption = which // Update the selected option when a radio button is clicked
                         }
                         builder.setPositiveButton("OK") { dialog, _ ->
+
+                            ProgressBarUtils.showProgressBar(this@MemberViewActivity)
 
                             var call: Call<List<Model>> = apiInterface.viewentrybymidpassno(mid,list2[selectedOption].pid)
                             call.enqueue(object: Callback<List<Model>>
@@ -125,6 +133,8 @@ class MemberViewActivity : AppCompatActivity() {
 
                                         binding.totalPass.text = totalPass.toString()
                                         binding.totalRupees.text = totalRupees.toString()
+
+                                        ProgressBarUtils.hideProgressBar()
 
                                     }
                                 }

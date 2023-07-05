@@ -1,5 +1,7 @@
 package com.example.passcounter.Activity
 
+import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -31,14 +33,17 @@ class MainActivity : AppCompatActivity() {
         list = ArrayList()
 
         binding.addNewEntry.setOnClickListener {
-            startService(Intent(applicationContext, NotificationService::class.java))
+
             startActivity(Intent(this,AddNewEntryActivity::class.java))
         }
         binding.addNewPass.setOnClickListener {
-            stopService(Intent(applicationContext,NotificationService::class.java))
+
             startActivity(Intent(this,AddNewPassActivity::class.java))
         }
-
+        binding.settings.setOnClickListener {
+            startActivity(Intent(this,SettingActivity::class.java))
+        }
+        ProgressBarUtils.showProgressBar(this)
 
         var manager : RecyclerView.LayoutManager = LinearLayoutManager(this)
         binding!!.recyclerMember.layoutManager=manager
@@ -48,16 +53,35 @@ class MainActivity : AppCompatActivity() {
         call.enqueue(object: Callback<List<Model>>
         {
             override fun onResponse(call: Call<List<Model>>, response: Response<List<Model>>) {
+//                customProgressBar(this@MainActivity,false)
                 if (this != null) {
                     list = response.body() as MutableList<Model>
 
                     var adapter2 = MemberAdapter(this@MainActivity, list)
                     binding!!.recyclerMember.adapter = adapter2
+
+                    ProgressBarUtils.hideProgressBar()
                 }
             }
             override fun onFailure(call: Call<List<Model>>, t: Throwable) {
                 Toast.makeText(this@MainActivity, "No Internet", Toast.LENGTH_LONG).show()
             }
         })
+    }
+
+}
+object ProgressBarUtils {
+    private var progressDialog: Dialog? = null
+
+    fun showProgressBar(context: Context) {
+        progressDialog = Dialog(context)
+        progressDialog?.setContentView(R.layout.custom_progress_dialog)
+        progressDialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        progressDialog?.show()
+    }
+
+    fun hideProgressBar() {
+        progressDialog?.dismiss()
+        progressDialog = null
     }
 }

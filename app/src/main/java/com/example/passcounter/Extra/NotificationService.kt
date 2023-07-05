@@ -48,7 +48,7 @@ class NotificationService : Service() {
                 checkDataN()
             }
 
-            mHandler.postDelayed(mRunnable, 10 * 1000 ) // Check every 10 seconds
+            mHandler.postDelayed(mRunnable, 60 * 1000 * 30) // Check every 10 seconds
         }
     }
 

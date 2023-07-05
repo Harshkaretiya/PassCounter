@@ -45,6 +45,8 @@ class AddNewPassActivity : AppCompatActivity() {
 
         binding.addPass.setOnClickListener {
 
+            ProgressBarUtils.showProgressBar(this)
+
             var passno = binding.passNo.text.toString().toInt()
 
             var call2: Call<Void> = apiInterface.insertpass(passno,selectedDate)
@@ -53,6 +55,7 @@ class AddNewPassActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<Void>, response: Response<Void>) {
                     if (this != null) {
                         if (response.isSuccessful){
+                            ProgressBarUtils.hideProgressBar()
                             Toast.makeText(this@AddNewPassActivity, "Done", Toast.LENGTH_SHORT).show()
                             onBackPressed()
 //                            Toast.makeText(this@NewEntryActivity, "done", Toast.LENGTH_SHORT).show()
